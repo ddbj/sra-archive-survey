@@ -40,6 +40,7 @@ survey_sizes.sh と survey_cram_sizes.sh は、同じ方法で取る。
 **重要:** `MISMATCH` の年があると、合計は取れた年だけで出て、終了コード 1 で終わる。表示されたコマンドで、その年だけ取り直す。`per_year.tsv` へは追記するので、取り直した年は最後の行が使われ、合計も作り直される。
 
 ```bash
+cd <repository root>
 bash scale/ebi/survey_sizes.sh --from-year 2020 --to-year 2020 out/ebi/2026-09-27
 ```
 
@@ -58,6 +59,7 @@ $ bash scale/ebi/survey_sizes.sh --help
 ```
 
 ```bash
+cd <repository root>
 bash scale/ebi/survey_sizes.sh out/ebi/2026-09-27
 ```
 
@@ -74,12 +76,14 @@ bash scale/ebi/survey_sizes.sh out/ebi/2026-09-27
 survey_sizes.sh の `raw/` から、系統別の保有 Run 数・coverage・ファイル数・総バイト数を集計する。survey_sizes.sh が内部で呼ぶので、ふだん単独では使わない。通信せずに集計し直したいときに使う。
 
 ```bash
+cd <repository root>
 python3 scale/ebi/aggregate_sizes.py out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
 `--per-year` を付けると、年ごとの小計を `per_year.tsv` と同じ列で出す。`per_year.tsv` を `raw/` から作り直すときに使う。
 
 ```bash
+cd <repository root>
 python3 scale/ebi/aggregate_sizes.py --per-year out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
@@ -92,6 +96,7 @@ scale_diff.py <前回の raw/err_*.tsv.gz...> -- <今回の raw/err_*.tsv.gz...>
 ```
 
 ```bash
+cd <repository root>
 python3 scale/ebi/scale_diff.py out/ebi/2026-09-20/raw/err_*.tsv.gz -- out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
@@ -112,6 +117,7 @@ $ bash scale/ebi/survey_cram_sizes.sh --help
 ```
 
 ```bash
+cd <repository root>
 bash scale/ebi/survey_cram_sizes.sh out/cram
 ```
 
@@ -122,6 +128,7 @@ bash scale/ebi/survey_cram_sizes.sh out/cram
 survey_cram_sizes.sh の `raw/` から、`.cram`、`.crai`、その他のファイル数と総バイト数を集計する。survey_cram_sizes.sh が内部で呼ぶ。`--per-year` の使い方は [aggregate_sizes.py](#aggregate_sizespy) と同じである。
 
 ```bash
+cd <repository root>
 python3 scale/ebi/aggregate_cram_sizes.py out/cram/raw/cram_*.tsv.gz
 ```
 
@@ -140,6 +147,7 @@ $ bash scale/ebi/extract_livelist_runs.sh --help
 ```
 
 ```bash
+cd <repository root>
 bash scale/ebi/extract_livelist_runs.sh out/ebi-vs/livelist
 ```
 

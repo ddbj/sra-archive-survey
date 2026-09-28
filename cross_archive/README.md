@@ -90,6 +90,8 @@ options:
 ```
 
 ```bash
+cd <repository root>
+source .venv/bin/activate
 python3 cross_archive/compare_archives.py \
     --archive ebi \
     --peer out/ebi-vs/ebi_sra/files.tsv \
@@ -129,6 +131,7 @@ $ bash cross_archive/survey_ebi_sra_sizes.sh --help
 ```
 
 ```bash
+cd <repository root>
 bash cross_archive/survey_ebi_sra_sizes.sh \
     --dedup out/ebi-vs/livelist/livelist_run_dedup.tsv.gz \
     out/ebi-vs/ebi_sra
@@ -187,6 +190,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 cross_archive/scan_ddbj_experiments.py --output out/ddbj-vs/ddbj_experiments.tsv
 ```
 
@@ -235,6 +239,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 cross_archive/fetch_ddbj_runs.py \
     --input out/ddbj-vs/ddbj-only-drx.txt \
     --output out/ddbj-vs/ddbj-only-runs.tsv \
@@ -278,6 +283,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 cross_archive/fetch_ddbj_status.py --output-directory out/ddbj-vs
 ```
 
@@ -328,6 +334,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 cross_archive/label_ddbj_results.py \
     --status out/ddbj-vs/20260927.dra.status.txt \
     --ddbj-only out/ddbj-vs/ddbj-only.tsv \

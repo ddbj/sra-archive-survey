@@ -34,11 +34,16 @@ sra-archive-survey は、SRA の Run データが NCBI・EBI・DDBJ の三極に
 - Python 3 と DuckDB（NCBI の Parquet カタログを読む）
 - bash、curl、gzip、awk、sort などの coreutils（EBI の取得）
 
-DuckDB は pip で入れる。
+DuckDB は venv に入れる。venv はリポジトリのルートに `.venv` として作る（`.gitignore` で除外してある）。
 
 ```bash
+cd <repository root>
+python3 -m venv .venv
+source .venv/bin/activate
 python3 -m pip install duckdb
 ```
+
+venv は、シェルを開くたびに `source .venv/bin/activate` で有効にする。
 
 外部へは次の宛先に接続する。どれも認証は要らない。
 
@@ -67,6 +72,7 @@ python3 -m pip install duckdb
 テストは外部へ接続しない。シェルスクリプトのテストは PATH から curl を外して走らせる。ディレクトリごとに実行する。
 
 ```bash
+cd <repository root>
 for d in scale/ncbi scale/ebi cross_archive usecases; do
   python3 -m unittest discover -s "$d" -p 'test_*.py' -t "$d"
 done

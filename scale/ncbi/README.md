@@ -73,6 +73,8 @@ options:
 `--prefix` に既定値は無い。三極合計なら `SRR ERR DRR`、一部だけなら `SRR` のように、毎回指定する。前回と違う対象で snapshot を取ると、対象の差がそのまま増減に見えるためである。
 
 ```bash
+cd <repository root>
+source .venv/bin/activate
 python3 scale/ncbi/survey_catalog.py --prefix SRR ERR DRR --output-directory out/ncbi/DRR-ERR-SRR
 ```
 
@@ -154,6 +156,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 scale/ncbi/snapshot_diff.py \
     --old out/ncbi/SRR/2026-09-20-runs.jsonl.gz \
     --new out/ncbi/SRR/2026-09-27-runs.jsonl.gz \
@@ -208,6 +211,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 scale/ncbi/scale_report.py \
     --catalog-report out/ncbi/SRR/2026-09-27-report.json \
     --diff-report out/ncbi/SRR/2026-09-27-diff-report.json \
@@ -248,6 +252,7 @@ options:
 ```
 
 ```bash
+cd <repository root>
 python3 scale/ncbi/filetype_stats.py --snapshot out/ncbi/SRR/2026-09-27-runs.jsonl.gz
 python3 scale/ncbi/filetype_stats.py --diff out/ncbi/SRR/2026-09-27-diff.jsonl.gz
 ```
