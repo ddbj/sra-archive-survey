@@ -92,10 +92,6 @@ python3 scale/ebi/aggregate_sizes.py out/ebi/2026-09-27/raw/err_*.tsv.gz
 `--per-year` を付けると、年ごとの小計を `per_year.tsv` と同じ列で出す。`per_year.tsv` を `raw/` から作り直すときに使う。
 
 ```bash
-cd <repository root>
-```
-
-```bash
 python3 scale/ebi/aggregate_sizes.py --per-year out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
