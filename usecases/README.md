@@ -37,6 +37,7 @@
 
 ## ラッパーに共通する動き
 
+- 例では、出力先を `out/` の下にしている。`out/` はコマンドを実行した場所に作られる。
 - 出力先は必ず指定する。既定の出力先は持たない。リポジトリの中を指定しても、大きな出力（`*.jsonl.gz`、`*.tsv.gz`、`*.rdiff.gz`）は `.gitignore` で除外される。
 - `--dry-run` で、実行するコマンドを確かめられる。何も実行せず、外部へも接続しない。
 - 止まったら同じコマンドをもう一度実行する。どのラッパーも、取得済みの分を飛ばして続きから進める。
@@ -77,7 +78,7 @@ $ bash usecases/ncbi_scale.sh --help
 
 ### 三極合計で取りたいとき
 
-PREFIX に `SRR ERR DRR` を並べる。出力は `<出力先>/DRR-ERR-SRR/` に溜まる。
+PREFIX に `SRR ERR DRR` を並べる。
 
 ```bash
 cd <repository root>
@@ -87,6 +88,8 @@ source .venv/bin/activate
 ```bash
 bash usecases/ncbi_scale.sh out/ncbi SRR ERR DRR
 ```
+
+この例では、結果は `out/ncbi/DRR-ERR-SRR/` に出る。
 
 合計に加えて、prefix ごとの内訳が出る。初回は前回の snapshot が無いので、規模だけを出す。
 
@@ -123,7 +126,7 @@ bash usecases/ncbi_scale.sh out/ncbi SRR ERR DRR
 
 ### どれかだけ取りたいとき（例 SRR）
 
-PREFIX に対象だけを書く。SRR だけなら `SRR`、EBI 由来の ERR だけなら `ERR` とする。出力は `<出力先>/SRR/` のように、対象ごとに別のディレクトリへ溜まる。
+PREFIX に対象だけを書く。SRR だけなら `SRR`、EBI 由来の ERR だけなら `ERR` とする。
 
 ```bash
 cd <repository root>
@@ -133,6 +136,8 @@ source .venv/bin/activate
 ```bash
 bash usecases/ncbi_scale.sh out/ncbi SRR
 ```
+
+この例では、結果は対象ごとのディレクトリ `out/ncbi/SRR/` に出る。
 
 同じ出力先で、三極合計と SRR だけの取得を並行して繰り返せる。前回の snapshot は同じ対象のディレクトリからだけ探すので、対象の違う snapshot 同士を比べることはない。`--previous` で対象の違う snapshot を指定しても、差分を出す前に止まる。
 
@@ -254,6 +259,8 @@ cd <repository root>
 bash usecases/ebi_scale.sh out/ebi
 ```
 
+この例では、結果は `out/ebi/<実行日>/` に出る。
+
 1 年につき、件数の問い合わせを取得の前後に 1 回ずつ、取得そのものを 1 回、計 3 リクエストを送る。2008 年から実行した年までで約 50 リクエストになり、約 20 分かかる。
 
 規模は `total.txt` に出る。
@@ -330,7 +337,9 @@ cd <repository root>
 bash usecases/ebi_cram.sh out/cram
 ```
 
-リクエストの送り方は [2. EBI の規模を取る](#2-ebi-の規模を取る)と同じで、約 10 分かかる。規模は `<出力先>/total.txt` に出る。
+この例では、結果は `out/cram/` に出る。
+
+リクエストの送り方は [2. EBI の規模を取る](#2-ebi-の規模を取る)と同じで、約 10 分かかる。規模は `total.txt` に出る。
 
 ```text
 取得時刻(UTC): 2026-09-27T14:21:24Z
@@ -379,6 +388,8 @@ source .venv/bin/activate
 ```bash
 bash usecases/ncbi_vs_ebi.sh out/ebi-vs
 ```
+
+この例では、結果は `out/ebi-vs/` に出る。
 
 手順 2 は、1 回の curl で 10 ディレクトリずつ引き、3 秒ずつ間を空ける。約 4,200 ディレクトリで約 420 回の接続になる。livelist.gz を別に取ってあれば、`--livelist` で渡すと手順 1 のダウンロードを省ける。
 
@@ -453,6 +464,8 @@ source .venv/bin/activate
 ```bash
 bash usecases/ncbi_vs_ddbj.sh out/ddbj-vs
 ```
+
+この例では、結果は `out/ddbj-vs/` に出る。
 
 DDBJ へのリクエストは 1 秒ずつ間を空けて送る。手順 1 で約 940 回、手順 3 で DDBJ にしか無い DRX 100 件につき 1 回、手順 4 で 1〜7 回になる。DDBJ は rate limit を公開していないので、`--delay` を 1 秒より短くしないことを勧める。
 
