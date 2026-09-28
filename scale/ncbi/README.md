@@ -75,6 +75,9 @@ options:
 ```bash
 cd <repository root>
 source .venv/bin/activate
+```
+
+```bash
 python3 scale/ncbi/survey_catalog.py --prefix SRR ERR DRR --output-directory out/ncbi/DRR-ERR-SRR
 ```
 
@@ -157,6 +160,9 @@ options:
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ncbi/snapshot_diff.py \
     --old out/ncbi/SRR/2026-09-20-runs.jsonl.gz \
     --new out/ncbi/SRR/2026-09-27-runs.jsonl.gz \
@@ -212,6 +218,9 @@ options:
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ncbi/scale_report.py \
     --catalog-report out/ncbi/SRR/2026-09-27-report.json \
     --diff-report out/ncbi/SRR/2026-09-27-diff-report.json \
@@ -253,6 +262,9 @@ options:
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ncbi/filetype_stats.py --snapshot out/ncbi/SRR/2026-09-27-runs.jsonl.gz
 python3 scale/ncbi/filetype_stats.py --diff out/ncbi/SRR/2026-09-27-diff.jsonl.gz
 ```

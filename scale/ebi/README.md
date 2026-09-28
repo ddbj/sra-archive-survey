@@ -41,6 +41,9 @@ survey_sizes.sh と survey_cram_sizes.sh は、同じ方法で取る。
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash scale/ebi/survey_sizes.sh --from-year 2020 --to-year 2020 out/ebi/2026-09-27
 ```
 
@@ -60,6 +63,9 @@ $ bash scale/ebi/survey_sizes.sh --help
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash scale/ebi/survey_sizes.sh out/ebi/2026-09-27
 ```
 
@@ -77,6 +83,9 @@ survey_sizes.sh の `raw/` から、系統別の保有 Run 数・coverage・フ�
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ebi/aggregate_sizes.py out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
@@ -84,6 +93,9 @@ python3 scale/ebi/aggregate_sizes.py out/ebi/2026-09-27/raw/err_*.tsv.gz
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ebi/aggregate_sizes.py --per-year out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
@@ -97,6 +109,9 @@ scale_diff.py <前回の raw/err_*.tsv.gz...> -- <今回の raw/err_*.tsv.gz...>
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ebi/scale_diff.py out/ebi/2026-09-20/raw/err_*.tsv.gz -- out/ebi/2026-09-27/raw/err_*.tsv.gz
 ```
 
@@ -118,6 +133,9 @@ $ bash scale/ebi/survey_cram_sizes.sh --help
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash scale/ebi/survey_cram_sizes.sh out/cram
 ```
 
@@ -129,6 +147,9 @@ survey_cram_sizes.sh の `raw/` から、`.cram`、`.crai`、その他のファ�
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 scale/ebi/aggregate_cram_sizes.py out/cram/raw/cram_*.tsv.gz
 ```
 
@@ -148,6 +169,9 @@ $ bash scale/ebi/extract_livelist_runs.sh --help
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash scale/ebi/extract_livelist_runs.sh out/ebi-vs/livelist
 ```
 

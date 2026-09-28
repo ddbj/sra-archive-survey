@@ -79,6 +79,9 @@ PREFIX に `SRR ERR DRR` を並べる。出力は `<出力先>/DRR-ERR-SRR/` に
 ```bash
 cd <repository root>
 source .venv/bin/activate
+```
+
+```bash
 bash usecases/ncbi_scale.sh out/ncbi SRR ERR DRR
 ```
 
@@ -122,6 +125,9 @@ PREFIX に対象だけを書く。SRR だけなら `SRR`、EBI 由来の ERR だ
 ```bash
 cd <repository root>
 source .venv/bin/activate
+```
+
+```bash
 bash usecases/ncbi_scale.sh out/ncbi SRR
 ```
 
@@ -182,6 +188,9 @@ snapshot は三極合計で 1 回あたり約 230 MB、SRR だけで約 170 MB �
 
 ```bash
 cd <repository root>
+```
+
+```bash
 grep -c '^ERR' out/ncbi/DRR-ERR-SRR/2026-09-27-added-runs.txt    # 新しく現れた ERR の件数
 grep -c '^DRR' out/ncbi/DRR-ERR-SRR/2026-09-27-removed-runs.txt  # 消えた DRR の件数
 grep '^ERR' out/ncbi/DRR-ERR-SRR/2026-09-27-changed-runs.tsv     # 内容が変わった ERR と変わった項目
@@ -236,6 +245,9 @@ $ bash usecases/ebi_scale.sh --help
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash usecases/ebi_scale.sh out/ebi
 ```
 
@@ -284,6 +296,9 @@ bam                62,481    76,443,654,036,876    76.444
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash scale/ebi/survey_sizes.sh --from-year 2020 --to-year 2020 out/ebi/2026-09-27
 bash usecases/ebi_scale.sh out/ebi
 ```
@@ -310,6 +325,9 @@ $ bash usecases/ebi_cram.sh --help
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash usecases/ebi_cram.sh out/cram
 ```
 
@@ -330,6 +348,9 @@ other               0                               0     0.000
 
 ```bash
 cd <repository root>
+```
+
+```bash
 bash usecases/ebi_cram.sh --from-year 2020 --to-year 2020 out/cram
 ```
 
@@ -358,6 +379,9 @@ $ bash usecases/ncbi_vs_ebi.sh --help
 ```bash
 cd <repository root>
 source .venv/bin/activate
+```
+
+```bash
 bash usecases/ncbi_vs_ebi.sh out/ebi-vs
 ```
 
@@ -429,6 +453,9 @@ $ bash usecases/ncbi_vs_ddbj.sh --help
 ```bash
 cd <repository root>
 source .venv/bin/activate
+```
+
+```bash
 bash usecases/ncbi_vs_ddbj.sh out/ddbj-vs
 ```
 

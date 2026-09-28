@@ -38,6 +38,9 @@ DuckDB は venv に入れる。venv はリポジトリのルートに `.venv` �
 
 ```bash
 cd <repository root>
+```
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install duckdb
@@ -73,6 +76,9 @@ venv は、シェルを開くたびに `source .venv/bin/activate` で有効に�
 
 ```bash
 cd <repository root>
+```
+
+```bash
 for d in scale/ncbi scale/ebi cross_archive usecases; do
   python3 -m unittest discover -s "$d" -p 'test_*.py' -t "$d"
 done
